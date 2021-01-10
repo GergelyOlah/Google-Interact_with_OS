@@ -10,9 +10,7 @@ def file_date(filename):
   time = datetime.datetime.fromtimestamp(timestamp)
   # Return just the date portion 
   # Hint: how many characters are in “yyyy-mm-dd”? 
-  return print(time) 
-  
-  """ ("{___}".format(___)) """
+  return "{}".format(str(time)[:10])
 
 print(file_date("newfile.txt")) 
 # Should be today's date in the format of yyyy-mm-dd
