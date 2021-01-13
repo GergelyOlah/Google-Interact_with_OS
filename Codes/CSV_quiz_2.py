@@ -1,3 +1,7 @@
+#Using the CSV file of flowers again, fill in the gaps of the contents_of_file function to 
+#process the data without turning it into a dictionary. 
+#How do you skip over the header record with the field names?
+
 import os
 import csv
 
@@ -19,15 +23,15 @@ def contents_of_file(filename):
   create_file(filename)
 
   # Open the file
-  ___
+  with open(filename, "r") as flowerlist:
     # Read the rows of the file
-    rows = ___
+    rows = csv.reader(flowerlist)
     # Process each row
     for row in rows:
-      ___ = row
+      name, colour, type = row
+      if name == "name": continue 
       # Format the return string for data rows only
-
-          return_string += "a {} {} is {}\n".format(___)
+      return_string += "a {} {} is {}\n".format(colour, name, type)
   return return_string
 
 #Call the function
