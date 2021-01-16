@@ -21,8 +21,11 @@ def find_email(argv):
     fullname = str(argv[1] + " " + argv[2])
     # Preprocess the data
     email_dict = populate_dictionary('/home/{{ username }}/data/user_emails.csv')
-    # Find and print the email
-    return email_dict.get(fullname.lower())
+    # If email exists, print it. A more simple way would be to simply add the "No email address found" to the get function: email_dict.get(fullname.lower(), "No email ad...")
+    if email_dict.get(fullname.lower()):
+        return email_dict.get(fullname.lower())
+    else:
+        return "No email address found"
   except IndexError:
     return "Missing parameters"
 
